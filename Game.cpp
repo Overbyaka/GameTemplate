@@ -27,13 +27,12 @@ double currentTime;
 Block *blocks;
 int n;
 Level level;
-bool isWin = false;
 
 // initialize game data in this function
 void initialize()
 {
     currentTime = clock();
-    hero = Hero(30,738);
+    hero = Hero(30,718);
     n = 12;
     blocks = new Block[n]{
         Block(Type::Floor, 20, 1024, 0, 0),
@@ -79,7 +78,10 @@ void act(float dt)
           for (int i = 0; i < hero.getHeight(); i++)
           {
               if (buffer[i + hero.getY()][hero.getX() - 1] == DOOR_COLOR)
-                  isWin = true;
+              {
+                  hero = Hero(30, 718);
+                  hero.setSpeedY(START_SPEED);
+              }
           }
       }
   
@@ -105,7 +107,10 @@ void act(float dt)
           for (int i = 0; i < hero.getHeight(); i++)
           {
               if (buffer[i + hero.getY()][hero.getX() + hero.getWidth() + 1] == DOOR_COLOR)
-                  isWin = true;
+              {
+                  hero = Hero(30, 718);
+                  hero.setSpeedY(START_SPEED);
+              }
           }
       }
   }
@@ -177,7 +182,10 @@ void act(float dt)
               for (int i = 0; i < hero.getWidth(); i++)
               {
                   if (buffer[hero.getY() - 1][i + hero.getX()] == DOOR_COLOR)
-                      isWin = true;
+                  {
+                      hero = Hero(70, 738);
+                      hero.setSpeedY(START_SPEED);
+                  }
               }
               hero.setSpeedY(-1);
           }
@@ -196,7 +204,7 @@ void draw()
   // clear backbuffer
   memset(buffer, 0, SCREEN_HEIGHT * SCREEN_WIDTH * sizeof(uint32_t));
 
-  if (!isWin) {
+ 
       //draw Hero
       for (int i = 0; i < hero.getHeight(); i++)
       {
@@ -216,19 +224,7 @@ void draw()
               }
           }
       }
-  }
-  //draw win
-  else 
-  {
-      for (int i = 0; i < SCREEN_HEIGHT; i++)
-      {
-          for (int j = 0; j < SCREEN_WIDTH; j++)
-          {
-              buffer[i][j] = i + j + 10000000;
-          }
-      }
-
-  }
+  
 }
 
 // free game data in this function
