@@ -48,7 +48,7 @@ void initialize()
         Block(Type::Floor, 2*number.getSize()*(1 + number.getM()), 2*number.getSize()*(number.getN()), SCREEN_WIDTH- 2 * number.getSize() * (number.getN()), 0),
         Block(Type::Danger, 10,30, 500, 748),
         Block(Type::Floor, 20, 900, 0, 600),
-        Block(Type::Danger, 10,300, 500, 600),
+        Block(Type::Danger, 10,200, 500, 600),
         Block(Type::Floor, 20, 800, 20, 200),
         Block(Type::Floor, 20, 100, 0, 450),
         Block(Type::Floor, 20, 150, 350, 400),
