@@ -1,8 +1,9 @@
 #pragma once
-enum class Type { Floor, Danger, Door };
+enum class Type { Floor, Danger, Door, Coin};
 #define FLOOR_COLOR 11111111
 #define DANGER_COLOR 33333333
 #define DOOR_COLOR 22222222
+#define COIN_COLOR 44444444
 
 class Block
 {

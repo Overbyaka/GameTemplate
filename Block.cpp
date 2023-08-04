@@ -23,6 +23,9 @@ Block::Block(Type t, int h, int w, int x, int y)
 		case Type::Door:
 			color = DOOR_COLOR;
 			break;
+		case Type::Coin:
+			color = COIN_COLOR;
+			break;
 	}
 }
 

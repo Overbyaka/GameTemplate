@@ -64,3 +64,27 @@ Level& Level::operator=(const Level& level)
 
 	return *this;
 }
+void Level::deleteCoinByCoords(int x, int y)
+{
+	for (int k = 0; k < n; k++)
+	{
+		if (map[k].getType() == Type::Coin && map[k].getX() <= x && x < map[k].getX() + map[k].getWidth() && map[k].getY() && map[k].getY() <= y && y < map[k].getY() + map[k].getHeight())
+		{
+			map[k].setColor(0);
+			break;
+		}
+	}
+	return;
+}
+void Level::restartCoin()
+{
+	for (int k = 0; k < n; k++)
+	{
+		if (map[k].getType() == Type::Coin)
+		{
+			map[k].setColor(COIN_COLOR);
+			break;
+		}
+	}
+	return;
+}

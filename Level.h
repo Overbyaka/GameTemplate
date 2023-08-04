@@ -15,5 +15,7 @@ class Level
 		int getLength();
 		Block getBlock(int i);
 		Level& operator=(const Level& level);
+		void deleteCoinByCoords(int x, int y);
+		void restartCoin();
 };
 
